@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.log4j.Logger;
-import org.claytantor.samples.appsmarketplace.security.LocalCredentialStore;
+import org.claytantor.samples.appsmarketplace.security.LocalMemoryCredentialStore;
 import org.claytantor.samples.appsmarketplace.security.LocalMemoryUserDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -38,7 +38,7 @@ public class UserCallbackController {
     private static final Logger logger = Logger.getLogger(UserCallbackController.class);
     
 
-    @Autowired LocalCredentialStore localCredentialStore;
+    @Autowired LocalMemoryCredentialStore localMemoryCredentialStore;
     @Autowired LocalMemoryUserDetailsService localMemoryUserDetailsService;
     
     private static final long serialVersionUID = 1L;
@@ -109,7 +109,7 @@ public class UserCallbackController {
       return new GoogleAuthorizationCodeFlow.Builder(new NetHttpTransport(), new JacksonFactory(),
       clientId, clientSecret,
       Collections.singleton(CalendarScopes.CALENDAR)).setCredentialStore(
-              localCredentialStore)
+              localMemoryCredentialStore)
       .build();
              
     }

@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.log4j.Logger;
-import org.claytantor.samples.appsmarketplace.security.LocalCredentialStore;
+import org.claytantor.samples.appsmarketplace.security.LocalMemoryCredentialStore;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -43,7 +43,7 @@ public class UserController {
     
     private static final Logger logger = Logger.getLogger(UserController.class);
     
-    @Autowired LocalCredentialStore localCredentialStore;
+    @Autowired LocalMemoryCredentialStore localMemoryCredentialStore;
     
     @Value("${google.oauth2.clientId}")
     private String clientId;
@@ -51,9 +51,10 @@ public class UserController {
     @Value("${google.oauth2.clientSecret}")
     private String clientSecret;
     
-    private static final long serialVersionUID = 1L;
+    @Value("${google.oauth2.callback}")
+    private String callback;
     
-    //com.google.api.services.calendar.Calendar client;
+    private static final long serialVersionUID = 1L;
     
     final HttpTransport transport = new NetHttpTransport();
 
@@ -119,7 +120,7 @@ public class UserController {
           // redirect to the authorization flow
 //          String redirectUri = getRedirectUri(req);
           credential = null;
-          return "redirect:https://accounts.google.com/o/oauth2/auth?response_type=code&redirect_uri=http://dev.welocally.com:8088/helloworld/oauth2callback&state=/user/calendar&client_id="+clientId+"&scope="+CalendarScopes.CALENDAR;
+          return "redirect:https://accounts.google.com/o/oauth2/auth?response_type=code&redirect_uri="+this.callback+"&state=/user/calendar&client_id="+clientId+"&scope="+CalendarScopes.CALENDAR;
      
         } 
         catch (ServletException e) {
@@ -157,7 +158,7 @@ public class UserController {
       return new GoogleAuthorizationCodeFlow.Builder(new NetHttpTransport(), new JacksonFactory(),
       clientId, clientSecret,
       Collections.singleton(CalendarScopes.CALENDAR)).setCredentialStore(
-              localCredentialStore)
+              localMemoryCredentialStore)
       .build();
         
         

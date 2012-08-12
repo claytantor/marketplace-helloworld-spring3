@@ -47,28 +47,7 @@
 		class="org.springframework.security.authentication.encoding.Md5PasswordEncoder"
 		id="passwordEncoder" />
 
-<!--	   <security:user-service id="userDetailsService">-->
-	    
-<!--	   -->
-<!--	     <security:user name="https://www.google.com/accounts/o8/id?id=AItOawmGg-rKQCQodJJyl0BjJDpFQur3tOmeXLA"-->
-<!--	          password="" authorities="ROLE_USER, ROLE_ADMIN" />-->
-<!--	     <security:user name="https://www.google.com/accounts/o8/id?id=AItOawkJWbQsKzikFNLKlhOwkysboqKKW8t9bOE"-->
-<!--	          password="" authorities="ROLE_USER, ROLE_ADMIN" />-->
-<!--	     <security:user name="https://www.google.com/accounts/o8/id?id=AItOawlj4_Dvf8XIDneg22bagLwJBaWmNIHnjIY"-->
-<!--	          password="" authorities="ROLE_USER, ROLE_ADMIN" />-->
-<!--	          -->
-<!--	          -->
-<!--	          -->
-<!--	         -->
-<!--	   </security:user-service>-->
-  
-<!--	 clay's password is admin, while jane;s password is user  -->
-<!--	<security:user-service id="userDetailsService">-->
-<!--		<security:user name="clay" password="21232f297a57a5a743894a0e4a801fc3"-->
-<!--			authorities="ROLE_USER, ROLE_ADMIN" />-->
-<!--		<security:user name="jane" password="ee11cbb19052e40b07aac0ca060c23ee"-->
-<!--			authorities="ROLE_USER" />-->
-<!--	</security:user-service>-->
+
 
 </beans>
 

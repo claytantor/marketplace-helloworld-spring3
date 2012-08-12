@@ -118,24 +118,6 @@
 			<version>${google.client.version}</version>
 		</dependency>	
 		
-<!--		 <dependency>-->
-<!--	        <groupId>com.google.appengine</groupId>-->
-<!--	        <artifactId>appengine-api-1.0-sdk</artifactId>-->
-<!--	        <version>1.6.1</version>-->
-<!--	      </dependency>-->
-	      
-<!--	    <dependency>-->
-<!--            <groupId>com.google.gdata</groupId>-->
-<!--            <artifactId>gdata-calendar-2.0</artifactId>-->
-<!--            <version>1.41.5</version>-->
-<!--            <exclusions>-->
-<!--            	<exclusion>-->
-<!--            		<groupId>com.google.collections</groupId>-->
-<!--            		<artifactId>google-collections</artifactId>-->
-<!--            	</exclusion>-->
-<!--            </exclusions>-->
-<!--        </dependency>-->
-        
         
        <dependency>
 	      <groupId>com.google.apis</groupId>

@@ -19,8 +19,6 @@ import org.springframework.stereotype.Component;
 @Component(value="localUserDetailsService")
 public class LocalMemoryUserDetailsService implements UserDetailsService {
     
-
-
     /**
      * bypass any store, assume provider has properly authenticated and
      * give roles

@@ -3,9 +3,14 @@ target
 .settings
 .classpath
 src/main/resources/application.properties
+src/test/resources/helloworld-application.properties
 *.class
 
 # Package Files #
 *.jar
 *.war
 *.ear
+
+src/main/resources/helloworld-application.properties
+
+src/test/resources/helloworld-application.properties
