@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+       
+  <appender name="consoleAppender" class="org.apache.log4j.ConsoleAppender">
+    <layout class="org.apache.log4j.PatternLayout">
+      <param name="ConversionPattern" value="[%t] %c %p - %m%n"/>
+    </layout>
+  </appender>
+   
+  <category name="org.claytantor">
+    <priority value="debug"/>
+  </category>
+  
+  <category name="com.sun.net.ssl">
+    <priority value="debug"/>
+  </category>
+  <category name=" com.google.api.client.http">
+    <priority value="debug"/>
+  </category>
+  
+   
+  
+  <category name="org.openid4java">
+    <priority value="debug"/>
+  </category>
+ 
+  
+  <category name="org.springframework.web.servlet.handler">
+    <priority value="debug"/>
+  </category> 
+  
+   <root>
+    <priority value="root"/>
+    <appender-ref ref="consoleAppender"/>
+  </root>
+
+</log4j:configuration>
+
