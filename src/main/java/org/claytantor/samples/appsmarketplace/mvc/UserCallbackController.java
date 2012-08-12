@@ -10,7 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.log4j.Logger;
-import org.claytantor.samples.appsmarketplace.store.LocalCredentialStore;
+import org.claytantor.samples.appsmarketplace.security.LocalCredentialStore;
+import org.claytantor.samples.appsmarketplace.security.LocalMemoryUserDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -22,7 +23,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.google.api.client.auth.oauth2.AuthorizationCodeFlow;
 import com.google.api.client.auth.oauth2.AuthorizationCodeResponseUrl;
 import com.google.api.client.auth.oauth2.Credential;
-import com.google.api.client.auth.oauth2.MemoryCredentialStore;
 import com.google.api.client.auth.oauth2.TokenResponse;
 import com.google.api.client.googleapis.auth.oauth2.GoogleAuthorizationCodeFlow;
 import com.google.api.client.http.javanet.NetHttpTransport;
@@ -39,6 +39,7 @@ public class UserCallbackController {
     
 
     @Autowired LocalCredentialStore localCredentialStore;
+    @Autowired LocalMemoryUserDetailsService localMemoryUserDetailsService;
     
     private static final long serialVersionUID = 1L;
 
@@ -84,8 +85,8 @@ public class UserCallbackController {
                 }
                 TokenResponse response = flow.newTokenRequest(code).setRedirectUri(redirectUri).execute();
                 String userId = getUserId(req);
-                Credential credential = flow.createAndStoreCredential(response, userId);
-                //onSuccess(req, resp, credential);
+                Credential credential = flow.createAndStoreCredential(response, userId);  
+                //localMemoryUserDetailsService.putUser(userId, "ROLE_USER");
                 
                 return "redirect:/user/calendar";
                 
@@ -104,20 +105,13 @@ public class UserCallbackController {
         return "home";
     }
     
-    protected AuthorizationCodeFlow initializeFlow() throws IOException {
-//      return new GoogleAuthorizationCodeFlow.Builder(new NetHttpTransport(), new JacksonFactory(),
-//          clientId, clientSecret,
-//          Collections.singleton(CalendarScopes.CALENDAR)).setCredentialStore(
-//          new JdoCredentialStore(JDOHelper.getPersistenceManagerFactory("transactions-optional")))
-//          .build();
-        
+    protected AuthorizationCodeFlow initializeFlow() throws IOException {        
       return new GoogleAuthorizationCodeFlow.Builder(new NetHttpTransport(), new JacksonFactory(),
       clientId, clientSecret,
       Collections.singleton(CalendarScopes.CALENDAR)).setCredentialStore(
               localCredentialStore)
       .build();
-        
-        
+             
     }
 
     /** Returns the redirect URI for the given HTTP servlet request. */

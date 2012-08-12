@@ -1,4 +1,4 @@
-package org.claytantor.samples.appsmarketplace.store;
+package org.claytantor.samples.appsmarketplace.security;
 
 import org.springframework.stereotype.Component;
 
