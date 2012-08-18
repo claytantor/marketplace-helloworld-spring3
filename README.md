@@ -14,4 +14,4 @@ the application.properties file needs to be in the classpath, an example of what
 
     google.oauth2.clientId=97350962347-ou4vfsjded8c3ir90e7tlpqp9puvapjn.apps.googleusercontent.com
     google.oauth2.clientSecret=fS5e16cEMrNE66sTDs2zpZ-J 
-    google.oauth2.callbackPrefix=http://dev.welocally.com:8088/helloworld/
+    google.oauth2.callbackPrefix=http://dev.marketapp.com:8088/helloworld/
