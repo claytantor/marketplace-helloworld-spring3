@@ -7,7 +7,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.log4j.Logger;
-import org.claytantor.samples.appsmarketplace.security.LocalMemoryCredentialStore;
 import org.claytantor.samples.appsmarketplace.service.ScribeOAuthSpreadsheetService;
 import org.scribe.model.Token;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,12 +25,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 @RequestMapping(value="/user")
 @Scope("request")
 public class UserController {
-    
-    
+       
     private static final Logger logger = Logger.getLogger(UserController.class);
     
-    @Autowired LocalMemoryCredentialStore localMemoryCredentialStore;
-
     @Value("${google.oauth2.callbackPrefix}")
     private String callbackPrefix;
      
