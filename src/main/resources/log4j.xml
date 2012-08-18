@@ -12,24 +12,11 @@
   <category name="org.claytantor">
     <priority value="debug"/>
   </category>
-  
-  <category name="com.sun.net.ssl">
-    <priority value="debug"/>
-  </category>
-  <category name=" com.google.api.client.http">
+  <category name="org.scribe">
     <priority value="debug"/>
   </category>
   
-   
-  
-  <category name="org.openid4java">
-    <priority value="debug"/>
-  </category>
- 
-  
-  <category name="org.springframework.web.servlet.handler">
-    <priority value="debug"/>
-  </category> 
+
   
    <root>
     <priority value="root"/>
