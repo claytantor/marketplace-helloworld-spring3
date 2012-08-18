@@ -57,6 +57,9 @@ public class UserCallbackController {
     
     @Value("${google.oauth2.clientSecret}")
     private String clientSecret;
+    
+    @Value("${google.oauth2.callback}")
+    private String callback;
            
     
     @RequestMapping(method=RequestMethod.GET)
@@ -86,7 +89,6 @@ public class UserCallbackController {
                 TokenResponse response = flow.newTokenRequest(code).setRedirectUri(redirectUri).execute();
                 String userId = getUserId(req);
                 Credential credential = flow.createAndStoreCredential(response, userId);  
-                //localMemoryUserDetailsService.putUser(userId, "ROLE_USER");
                 
                 return "redirect:/user/calendar";
                 
@@ -117,7 +119,7 @@ public class UserCallbackController {
     /** Returns the redirect URI for the given HTTP servlet request. */
     protected  String getRedirectUri(HttpServletRequest req)
         throws ServletException, IOException{
-        return "http://dev.welocally.com:8088/helloworld/oauth2callback";
+        return this.callback;
     }
 
     /** Returns the user ID for the given HTTP servlet request. */
