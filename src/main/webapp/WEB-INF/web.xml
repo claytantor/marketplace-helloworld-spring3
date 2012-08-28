@@ -88,48 +88,4 @@
   	</error-page>
 	
 
-<!--    <filter>-->
-<!--        <filter-name>OpenID Filter</filter-name>-->
-<!--        <filter-class>com.google.code.openid.RelyingPartyFilter</filter-class>-->
-<!--    </filter>-->
-<!---->
-<!--    <filter-mapping>-->
-<!--        <filter-name>OpenID Filter</filter-name>-->
-<!--        <url-pattern>/*</url-pattern>-->
-<!--    </filter-mapping>-->
-    
-    
-
-<!--    <servlet>-->
-<!--        <servlet-name>LoginServlet</servlet-name>-->
-<!--        <servlet-class>com.google.code.samples.appsmarketplace.LoginServlet</servlet-class>-->
-<!--        <init-param>-->
-<!--            <param-name>realm</param-name>-->
-<!--            <param-value>@OPENID_REALM@</param-value>-->
-<!--        </init-param>-->
-<!--    </servlet>-->
-<!---->
-<!--    <servlet>-->
-<!--        <servlet-name>CalendarServlet</servlet-name>-->
-<!--        <servlet-class>com.google.code.samples.appsmarketplace.CalendarServlet</servlet-class>-->
-<!--        <init-param>-->
-<!--            <param-name>consumer_key</param-name>-->
-<!--            <param-value>@CLIENT_KEY@</param-value>-->
-<!--        </init-param>-->
-<!--        <init-param>-->
-<!--            <param-name>consumer_secret</param-name>-->
-<!--            <param-value>@CLIENT_SECRET@</param-value>-->
-<!--        </init-param>-->
-<!--    </servlet>-->
-<!---->
-<!--    <servlet-mapping>-->
-<!--        <servlet-name>LoginServlet</servlet-name>-->
-<!--        <url-pattern>/login</url-pattern>-->
-<!--    </servlet-mapping>-->
-<!---->
-<!---->
-<!--    <servlet-mapping>-->
-<!--        <servlet-name>CalendarServlet</servlet-name>-->
-<!--        <url-pattern>/hello</url-pattern>-->
-<!--    </servlet-mapping>-->
 </web-app>

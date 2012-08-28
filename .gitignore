@@ -14,3 +14,5 @@ src/test/resources/helloworld-application.properties
 src/main/resources/helloworld-application.properties
 
 src/test/resources/helloworld-application.properties
+
+src/main/webapp/.DS_Store
